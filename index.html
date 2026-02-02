@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Web Designer Portfolio - 10 Years Experience</title>
+    <meta name="description" content="Professional Web Designer with 10+ years of experience in WordPress, React, HTML/CSS, Shopify, and modern web development technologies.">
+    
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        * { font-family: 'Inter', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { overflow-x: hidden; }
+        
+        .section-padding { padding: 60px 0; }
+        @media (min-width: 768px) { .section-padding { padding: 80px 0; } }
+        
+        .hero-geometric {
+            position: relative;
+            background: linear-gradient(135deg, #3B82F6 0%, #2563EB 50%, #1D4ED8 100%);
+            overflow: hidden;
+        }
+        
+        .hero-gradient-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom right, rgba(59, 130, 246, 0.1), transparent, rgba(37, 99, 235, 0.1));
+            filter: blur(50px);
+        }
+        
+        .elegant-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: linear-gradient(to right, rgba(255, 255, 255, 0.1), transparent);
+            backdrop-filter: blur(2px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .elegant-shape-1 { width: 600px; height: 140px; left: -10%; top: 15%; animation: float-shape 12s ease-in-out infinite; }
+        .elegant-shape-2 { width: 500px; height: 120px; right: -5%; top: 70%; animation: float-shape 14s ease-in-out infinite; }
+        
+        @keyframes float-shape {
+            0%, 100% { transform: translateY(0px) rotate(12deg); }
+            50% { transform: translateY(15px) rotate(12deg); }
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-content { display: flex; justify-content: center; align-items: center; max-width: 1200px; margin: 0 auto; }
+
+        .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .animate-on-scroll.animate { opacity: 1; transform: translateY(0); }
+        
+        .service-card {
+            background: white; border: 1px solid #e5e7eb; border-radius: 16px; padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; overflow: hidden;
+        }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -6px rgba(59, 130, 246, 0.2); }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3B82F6, #60A5FA); transform: scaleX(0); transition: transform 0.3s ease; }
+        .service-card:hover::before { transform: scaleX(1); }
+
+        .portfolio-card { background: white; border: 1px solid #e5e7eb; border-radius: 20px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; margin-bottom: 40px; }
+        .portfolio-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px -6px rgba(59, 130, 246, 0.2); }
+
+        .dynamic-iframe { width: 100%; border-radius: 12px; overflow: hidden; box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); background: #f9fafb; border: 1px solid #e5e7eb; }
+        .dynamic-iframe iframe { width: 100%; height: 600px; border: none; border-radius: 12px; }
+        @media (max-width: 768px) { .dynamic-iframe iframe { height: 400px; } }
+        
+        .testimonial-card { background: white; border: 1px solid #e5e7eb; border-radius: 20px; padding: 32px; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); transition: all 0.3s ease; position: relative; }
+        .testimonial-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, #3B82F6, #60A5FA); }
+
+        .profile-image { width: 300px; height: 300px; border-radius: 50%; object-fit: cover; border: 6px solid rgba(255, 255, 255, 0.9); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); }
+        @media (max-width: 768px) { .profile-image { width: 200px; height: 200px; } }
+
+        .progress-bar { height: 4px; background: linear-gradient(to right, #3B82F6, #60A5FA); border-radius: 2px; width: 0%; transition: width 1.5s ease-in-out; }
+        .progress-bar.animate { width: 100%; }
+
+        .tech-badge { display: inline-block; background: rgba(59, 130, 246, 0.1); color: #1D4ED8; font-size: 0.75rem; font-weight: 600; padding: 4px 12px; border-radius: 20px; border: 1px solid rgba(59, 130, 246, 0.2); margin-right: 4px; margin-bottom: 4px; }
+        .blue-bg-section { background: linear-gradient(135deg, #3B82F6, #2563EB); color: white; }
+        .blue-accent-bg { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(96, 165, 250, 0.05)); }
+    </style>
+</head>
+<body class="bg-white">
+
+    <header class="main-nav">
+        <div class="nav-content">
+            <h2 class="text-xl font-bold text-blue-600">Web Designer Portfolio</h2>
+        </div>
+    </header>
+
+    <section class="hero-geometric relative section-padding" style="padding-top: 120px;">
+        <div class="hero-gradient-bg"></div>
+        <div class="elegant-shape elegant-shape-1"></div>
+        <div class="elegant-shape elegant-shape-2"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <img src="https://saveideasdigital.com.au/portfolio/ibrahim/ibra-yellow.png" class="profile-image mx-auto lg:mx-0" alt="Profile Image">
+                </div>
+                <div class="text-center lg:text-left text-white">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-6">Professional Web Designer</h1>
+                    <p class="text-xl md:text-2xl mb-6 font-light">10+ Years of Web Development Experience</p>
+                    <div class="space-y-4 text-lg">
+                        <p>🚀 <span class="font-semibold">10+ years</span> of proven web development expertise</p>
+                        <p>💻 Expert in <span class="font-semibold">WordPress, React, HTML/CSS, Shopify</span></p>
+                        <p>🎨 Specialized in <span class="font-semibold">Modern Web Design & Development</span></p>
+                        <p>📱 <span class="font-semibold">Responsive Design</span> & User Experience Focus</p>
+                        <p>⚡ <span class="font-semibold">Performance Optimization</span> & SEO Integration</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center max-w-3xl mx-auto mb-16 animate-on-scroll">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Web Development Expertise</h2>
+                <p class="text-gray-600 text-lg">Specialized in creating beautiful, functional websites using modern technologies including WordPress, React, HTML/CSS, Shopify, Wix, and Weebly.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <div class="service-card animate-on-scroll">
+                    <i class="fab fa-wordpress text-3xl text-blue-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">WordPress Development 🎯</h3>
+                    <p class="text-gray-600">Custom WordPress websites, themes, and plugins. From blogs to complex business sites.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fab fa-react text-3xl text-cyan-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">React Applications ⚛️</h3>
+                    <p class="text-gray-600">Modern, interactive web applications built with React and dynamic user interfaces.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fab fa-html5 text-3xl text-orange-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">HTML/CSS Development 🎨</h3>
+                    <p class="text-gray-600">Clean, semantic HTML with modern CSS. Responsive layouts and pixel-perfect designs.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fab fa-shopify text-3xl text-green-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">E-commerce Solutions 🛒</h3>
+                    <p class="text-gray-600">Shopify stores and WooCommerce integration with payment processing.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fas fa-rocket text-3xl text-purple-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Landing Pages 🚀</h3>
+                    <p class="text-gray-600">High-converting landing pages optimized for lead generation and sales conversion.</p>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <i class="fas fa-tools text-3xl text-pink-600 mb-4"></i>
+                    <h3 class="text-xl font-semibold mb-3">Website Builders 🛠️</h3>
+                    <p class="text-gray-600">Expert customization of Wix, Weebly, and other builders for quick deployment.</p>
+                </div>
+            </div>
+
+            <div class="blue-accent-bg rounded-2xl p-8 animate-on-scroll">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8 text-center">Why Choose My Web Development Services?</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="flex flex-col items-center text-center">
+                        <div class="bg-blue-600 rounded-full p-2 mb-3 text-white"><i class="fas fa-check"></i></div>
+                        <h4 class="font-semibold mb-1">10+ Years Experience</h4>
+                        <p class="text-sm text-gray-600">Extensive experience building for various industries.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="bg-blue-600 rounded-full p-2 mb-3 text-white"><i class="fas fa-check"></i></div>
+                        <h4 class="font-semibold mb-1">Modern Technologies</h4>
+                        <p class="text-sm text-gray-600">Always up-to-date with latest development trends.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="bg-blue-600 rounded-full p-2 mb-3 text-white"><i class="fas fa-check"></i></div>
+                        <h4 class="font-semibold mb-1">Responsive Design</h4>
+                        <p class="text-sm text-gray-600">Optimized for mobile, tablet, and desktop.</p>
+                    </div>
+                    <div class="flex flex-col items-center text-center">
+                        <div class="bg-blue-600 rounded-full p-2 mb-3 text-white"><i class="fas fa-check"></i></div>
+                        <h4 class="font-semibold mb-1">Performance Focus</h4>
+                        <p class="text-sm text-gray-600">Fast-loading sites optimized for SEO and UX.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding blue-accent-bg">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 text-center mb-16">Featured Projects</h2>
+            
+            <div class="space-y-20">
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Prompts Garage</h3>
+                            <p class="text-blue-600 font-medium mb-3">AI Resource Marketplace</p>
+                            <div class="mb-4"><span class="tech-badge">AI Tools</span><span class="tech-badge">E-commerce</span></div>
+                            <p class="text-gray-600 mb-4">High-quality marketplace for specialized AI prompts and digital assets.</p>
+                            <a href="https://promptsgarage.com/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://promptsgarage.com/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">SEO Agencija</h3>
+                            <p class="text-blue-600 font-medium mb-3">Digital Marketing Platform</p>
+                            <div class="mb-4"><span class="tech-badge">SEO</span><span class="tech-badge">Optimization</span></div>
+                            <p class="text-gray-600 mb-4">Professional portal for search engine optimization and online marketing services.</p>
+                            <a href="https://seoagencija.ba/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://seoagencija.ba/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Izrada Web Stranice</h3>
+                            <p class="text-blue-600 font-medium mb-3">Web Development Agency</p>
+                            <div class="mb-4"><span class="tech-badge">Design</span><span class="tech-badge">Development</span></div>
+                            <p class="text-gray-600 mb-4">Comprehensive solutions for modern web design and technical development.</p>
+                            <a href="https://izradawebstranice.ba/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://izradawebstranice.ba/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Solarna Elektrana</h3>
+                            <p class="text-blue-600 font-medium mb-3">Green Tech Energy</p>
+                            <div class="mb-4"><span class="tech-badge">Renewable</span><span class="tech-badge">Consulting</span></div>
+                            <p class="text-gray-600 mb-4">Informative and high-performance platform for solar energy solutions.</p>
+                            <a href="https://solarnaelektrana.ba/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://solarnaelektrana.ba/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Chatlino</h3>
+                            <p class="text-blue-600 font-medium mb-3">AI Conversational Interface</p>
+                            <div class="mb-4"><span class="tech-badge">React</span><span class="tech-badge">AI API</span></div>
+                            <p class="text-gray-600 mb-4">Interactive AI chatbot application built with modern React components.</p>
+                            <a href="https://chatlino.com/" target="_blank" class="text-blue-600 font-bold">Visit Application →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://chatlino.com/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Bliss Bites NYNJ</h3>
+                            <p class="text-blue-600 mb-4">WordPress E-commerce</p>
+                            <a href="https://blissbitesnynj.com/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://blissbitesnynj.com/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-3">Sirkka Hypnotherapy</h3>
+                            <p class="text-blue-600 mb-4">React SPA</p>
+                            <a href="https://sirkka.io/" target="_blank" class="text-blue-600 font-bold">Visit Website →</a>
+                        </div>
+                        <div class="dynamic-iframe"><iframe src="https://sirkka.io/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Save Ideas IP Protection</h3><p class="text-blue-600 mb-4">SaaS Platform</p><a href="https://save-ideas.com/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://save-ideas.com/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Razlicak Floating Houses</h3><p class="text-blue-600 mb-4">Tourism Website</p><a href="https://razlicak.rs/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://razlicak.rs/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Kliktura Digital Agency</h3><p class="text-blue-600 mb-4">Custom HTML/CSS</p><a href="https://kliktura.ba/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://kliktura.ba/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Mr. Checkmate Chess</h3><p class="text-blue-600 mb-4">WordPress Platform</p><a href="https://www.mrscheckmate.com/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://www.mrscheckmate.com/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Save Ideas Australia</h3><p class="text-blue-600 mb-4">Digital Agency Website</p><a href="https://saveideasdigital.com.au/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://saveideasdigital.com.au/"></iframe></div>
+                    </div>
+                </div>
+
+                <div class="portfolio-card animate-on-scroll p-8">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <div><h3 class="text-2xl font-bold mb-3">Gradnja Kuce</h3><p class="text-blue-600 mb-4">Construction Industry</p><a href="https://gradnjakuce.ba/" class="text-blue-600 font-bold">Visit Website →</a></div>
+                        <div class="dynamic-iframe"><iframe src="https://gradnjakuce.ba/"></iframe></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-16">Client Testimonials</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="italic text-gray-700 mb-4">"The website transformation was incredible! Professional work and excellent communication."</p>
+                    <h4 class="font-bold">Selma Dobryansky</h4>
+                    <p class="text-sm text-gray-500">Bliss Bites NYNJ</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="italic text-gray-700 mb-4">"Exceptional technical skills in combining WordPress with React for our SaaS platform."</p>
+                    <h4 class="font-bold">Hazbo Skoko</h4>
+                    <p class="text-sm text-gray-500">Save Ideas IP Protection</p>
+                </div>
+                <div class="testimonial-card animate-on-scroll">
+                    <p class="italic text-gray-700 mb-4">"Clean, fast-loading website that perfectly represents our brand. Highly recommend!"</p>
+                    <h4 class="font-bold">Kliktura Client</h4>
+                    <p class="text-sm text-gray-500">Digital Marketing Agency</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="section-padding blue-bg-section text-center text-white">
+        <h2 class="text-3xl md:text-4xl font-bold mb-6">Ready to Build Your Dream Website?</h2>
+        <p class="text-lg opacity-90 mb-8 max-w-2xl mx-auto">Let's discuss your project and create a website that drives results. Contact me today to bring your vision to life.</p>
+        <div class="flex flex-wrap justify-center gap-4 text-sm opacity-80">
+            <span>WordPress</span> • <span>React</span> • <span>E-commerce</span> • <span>SEO</span>
+        </div>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                    const bars = entry.target.querySelectorAll('.progress-bar');
+                    bars.forEach(bar => bar.classList.add('animate'));
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
